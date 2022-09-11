@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+  source:
+    chart: prometheus
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 15.12.0
+    helm:
+      parameters:
+        - name: nodeExporter.enabled
+          value: 'false'
+        - name: server.ingress.enabled
+          value: 'true'
+        - name: server.ingress.ingressClassName
+          value: 'nginx'
+        - name: server.ingress.hosts[0]
+          value: 'prometheus.{{ .Values.domain }}'
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+  destination:
+    namespace: monitoringv2
+    server: "https://kubernetes.default.svc"

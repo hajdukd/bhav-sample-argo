@@ -1,0 +1,62 @@
+## Rules
+# Windows only
+*.bat text eol=crlf
+*.BAT text eol=crlf
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+*.csproj text eol=clrf
+*.reg text eol=crlf
+*.ini text eol=crlf
+# Docs
+*.txt text eol=lf
+*.md text eol=lf
+
+# C#
+*.cs text eol=lf
+
+# Java sources
+*.java          text eol=lf diff=java
+*.groovy	text eol=lf
+*.gradle        text eol=lf diff=java
+*.gradle.kts    text eol=lf diff=java
+# Cpp
+*.cpp		text eol=lf
+*.c		text eol=lf
+*.h		text eol=lf
+# Python
+*.py		text eol=lf
+# Shell
+*.sh    text eol=lf
+# Powershell
+*.ps1		text eol=lf
+# These files are text and should be normalized (Convert crlf => lf)
+*.css           text eol=lf diff=css
+*.df            text eol=lf
+*.htm           text eol=lf diff=html
+*.html          text eol=lf diff=html
+*.js            text eol=lf
+*.ts            text eol=lf
+*.jsp           text eol=lf
+*.jspf          text eol=lf
+*.jspx          text eol=lf
+*.properties    text eol=lf
+*.tld           text eol=lf
+*.tag           text eol=lf
+*.tagx          text eol=lf
+*.xml           text eol=lf
+*.json          text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+# These files are binary and should be left untouched
+# (binary is a macro for -text -diff)
+*.class         binary
+*.dll           binary
+*.ear           binary
+*.jar           binary
+*.so            binary
+*.war           binary
+*.jpg		binary
+*.png		binary
+*.gif		binary
+*.zip		binary
+## Exceptions
