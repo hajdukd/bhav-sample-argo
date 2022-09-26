@@ -21,6 +21,8 @@ spec:
           value: 'nginx'
         - name: server.ingress.hosts[0]
           value: 'prometheus.{{ .Values.domain }}'
+        - name: server.retention
+          value: '2h'
   syncPolicy:
     automated:
       selfHeal: true
